@@ -47,6 +47,17 @@ t.sleep(1)
 
 print("\n")
 
+def randomInsult():
+    randomInt = r.randint(0, 2)
+
+    if(randomInt == 0):
+        print(bcolors.bold + bcolors.red + "\nBro, is a number that hard to type." + bcolors.end)
+    elif(randomInt == 1):
+        print(bcolors.bold + bcolors.red + "\nCan you not listen to instructions. Honestly." + bcolors.end)
+    elif(randomInt == 2):
+        print(bcolors.bold + bcolors.red + "\nWhy can you not follow simple instructions." + bcolors.end)
+
+
 def roll():
     global points, isRolling
 
@@ -59,7 +70,7 @@ def roll():
             iterations = int(input(bcolors.bold + "How many times do you want to roll your " + str(amtOfDice) + " dice up to " + str(maxRolls) + " times (type 0 to stop rolling): " + bcolors.end))
             iterationsReset = iterations
         except(ValueError):
-            print(bcolors.bold + "\nBro, is a number that hard to type." + bcolors.end)
+            randomInsult()
 
         if(iterations != 0):
             if(iterations <= maxRolls):
@@ -109,7 +120,7 @@ def shop():
                 option = int(input(bcolors.bold + "\nType the number of the associated option: " + bcolors.end))
                 print("\n")
             except (ValueError):
-                print(bcolors.bold + "\nDude I said a number..." + bcolors.end)
+                print(bcolors.red + "\nDude I said a number..." + bcolors.end)
 
             if(option == 1):
                 if(diceMin < diceMax):
@@ -163,14 +174,14 @@ def shop():
                 isShop = False
 
             else:
-                print(bcolors.bold + "\nCan you not listen to instructions. Honestly." + bcolors.end)
+                randomInsult()
 
 
     elif(sorr.lower() == "r"or sorr.lower() == "rereoll"or sorr.lower() == "re-roll"):
         pass
 
     else:
-        print(bcolors.bold + "\nWhy can you not follow simple instructions." + bcolors.end)
+       randomInsult()
 
     isShop = True
 
