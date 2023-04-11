@@ -67,8 +67,9 @@ def roll():
 
     while(isRolling):
         try:
-            iterations = int(input(bcolors.bold + "How many times do you want to roll your " + str(amtOfDice) + " dice up to " + str(maxRolls) + " times (type 0 to stop rolling): " + bcolors.end))
+            iterations = int(input(bcolors.bold + "How many times do you want to roll your " + str(amtOfDice) + " dice up to " + str(maxRolls) + " times (type 0 to stop rolling): " + bcolors.red))
             iterationsReset = iterations
+            print(bcolors.end)
         except(ValueError):
             randomInsult()
 
@@ -102,8 +103,8 @@ def shop():
     if(points < min(minCost, maxCost, multiCost, amtCost, maxRollsCost)):
         print(f"{bcolors.bold}{bcolors.red}You can not afford anything{bcolors.end}")
     
-    sorr = input(bcolors.bold + "Type S for shop, R for re-roll: " + bcolors.end)
-    print(bcolors.green + "\npoints: " + str(points) + bcolors.end)
+    sorr = input(bcolors.bold + "Type S for shop, R for re-roll: " + bcolors.blue)
+    print(bcolors.end + bcolors.green + "\npoints: " + str(points) + bcolors.end)
 
     if(sorr.lower() == "s" or sorr.lower() == "shop"):
 
@@ -117,8 +118,8 @@ def shop():
 
             
             try:
-                option = int(input(bcolors.bold + "\nType the number of the associated option: " + bcolors.end))
-                print("\n")
+                option = int(input(bcolors.bold + "\nType the number of the associated option: " + bcolors.green))
+                print("\n" + bcolors.end)
             except (ValueError):
                 print(bcolors.red + "\nDude I said a number..." + bcolors.end)
 
